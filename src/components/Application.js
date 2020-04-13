@@ -1,16 +1,21 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import SignIn from "./SignIn/SignIn";
+import React, { useContext } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import ProfilePage from './ProfilePage';
+import { UserContext } from '../providers/UserProvider';
+import PasswordReset from './PasswordReset';
 
 const Application = () => {
-  const user = null;
+  const user = useContext(UserContext);
+  console.log(user);
   return user ? (
-    <div>Profile page</div>
+    <ProfilePage />
   ) : (
     <Routes>
       <Route path="/" element={<SignIn />} />
-      <Route path="signUp" element={<div>SignUp</div>} />
-      <Route path="passwordReset" element={<div>passwordReset</div>} />
+      <Route path="signUp" element={<SignUp />} />
+      <Route path="passwordReset" element={<PasswordReset />} />
     </Routes>
   );
 };

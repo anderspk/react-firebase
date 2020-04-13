@@ -1,14 +1,14 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Application from "./components/Application";
+import UserProvider from "./providers/UserProvider";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="app">
+      <UserProvider>
         <Application />
-      </div>
+      </UserProvider>
     </BrowserRouter>
   );
 }
